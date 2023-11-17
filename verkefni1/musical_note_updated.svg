@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 -100 150 400">
+<svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="-100 -100 500 500">
 
     <style>
         circle {
@@ -38,11 +39,19 @@
 
         @keyframes eyelidAnimation {
             0% {
-                transform: skewY(0);
+                transform: scaleY(0);
             }
 
-            100% {
-                transform: skewY(100deg);
+            5% {
+                transform: scaleY(10);
+            }
+
+            10% {
+                transform: scaleY(0);
+            }
+
+            20% {
+                transform: scaleY(0);
             }
         }
     </style>
@@ -84,16 +93,82 @@
             <path d="M547.486 448.735c-2.366-5.914-2.39-23.785-.053-39.978 1.075-7.451 1.47-23.707.778-31.951-3.573-42.473-24.805-84.519-58.788-116.417l-5.165-4.849-.02-35.152-.02-35.153 3.284 9.455c4.04 11.63 6.393 17.395 11.183 27.395 13.165 27.48 30.396 49.31 49.926 63.249 4.109 2.933 10.307 9.552 14.013 14.965 3.612 5.275 7.645 13.527 9.761 19.97 6.873 20.926 6.519 49.468-.99 79.972-5.919 24.04-17.436 50.456-22 50.456-.86 0-1.308-.46-1.909-1.962z" style="fill:#000;fill-opacity:1;stroke:#000;stroke-width:1.83255;stroke-opacity:1" transform="scale(.26458)"/>
         </g>
 
-        <g id="eyelid" fill="black" class="eyelid">
-            <rect width="200" height="10" x="-15" y="-35" />
+        
+        <g id="eyelid" fill="gold" transform="translate(0, -32)">
+            <rect x="-20" width="210" height="10" class="eyelid"/>
         </g>
     </defs>
 
     <use href="#face"/>
     <use href="#eyes"/>
+    <use href="#eyelid"/>
     <use href="#mouth"/>
     <use href="#text"/>
     <use href="#note"/>
-    <use href="#eyelid"/>
 
+</svg>
+
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="-250 -100 500 500">
+
+    <style>
+        circle {
+            stroke: black;
+            stroke-width: 2px;
+        }
+        text {
+            font: italic 40px serif;
+        }
+    </style>
+
+    <defs>
+        <g id="face2">
+            <circle cx="85" cy="60" r="144" fill="gold" />
+        </g>
+        <g id="eyes2">
+            <g fill="white">
+                <circle cx="30" cy="20" r="40" />
+                <circle cx="140" cy="20" r="40" />
+            </g>
+
+            <g fill="blue" stroke="blue">
+                <circle cx="30" cy="20" r="15" />
+                <circle cx="140" cy="20" r="15" />
+            </g>
+
+            <g fill="black">
+                <circle cx="30" cy="20" r="8.4" />
+                <circle cx="140" cy="20" r="8.4" />
+            </g>
+        </g>
+        <g id="mouth2">
+            <g stroke="black" stroke-width="2px">
+                <path d="M0,85 a1,1 0 0,0 180,0" fill="#963f4d" />
+            </g>
+            <rect x="0" y="85" width="180" height="2" fill="black" />
+        </g>
+
+        <text id="text2" x="-75" y="250">Tónlistar klúbburinn</text>
+
+        <g id="note2">
+            <ellipse cx="45.083" cy="154.25" rx="22.321" ry="12.831" style="fill:#000;fill-opacity:1;stroke:#000;stroke-width:1;stroke-opacity:1" transform="rotate(-25.1)"/>
+            <rect width="4.812" height="69.503" x="122.699" y="45.979" ry="2.406" style="fill:#000;fill-opacity:1;stroke:#000;stroke-width:1;stroke-opacity:1"/>
+            <path d="M127.51 45.979c5.881 22.454 17.91 29.405 17.91 29.405M145.42 75.384c14.436 11.761 3.743 37.691 3.743 37.691" style="fill:none;stroke:#000;stroke-width:.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+            <path d="M149.163 113.075c-6.415 16.04-4.812-2.94-4.812-2.94M144.351 110.135c4.545-25.93-16.84-42.771-16.84-42.771M127.51 67.364V45.979" style="fill:none;stroke:#000;stroke-width:.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+            <path d="M547.486 448.735c-2.366-5.914-2.39-23.785-.053-39.978 1.075-7.451 1.47-23.707.778-31.951-3.573-42.473-24.805-84.519-58.788-116.417l-5.165-4.849-.02-35.152-.02-35.153 3.284 9.455c4.04 11.63 6.393 17.395 11.183 27.395 13.165 27.48 30.396 49.31 49.926 63.249 4.109 2.933 10.307 9.552 14.013 14.965 3.612 5.275 7.645 13.527 9.761 19.97 6.873 20.926 6.519 49.468-.99 79.972-5.919 24.04-17.436 50.456-22 50.456-.86 0-1.308-.46-1.909-1.962z" style="fill:#000;fill-opacity:1;stroke:#000;stroke-width:1.83255;stroke-opacity:1" transform="scale(.26458)"/>
+        </g>
+
+        
+        <g id="eyelid2" fill="gold" transform="translate(0, -32)">
+            <rect x="-20" width="210" height="10"/>
+        </g>
+    </defs>
+
+    <use href="#face2"/>
+    <use href="#eyes2"/>
+    <use href="#eyelid2"/>
+    <use href="#mouth2"/>
+    <use href="#text2"/>
+    <use href="#note2"/>
+
+</svg>
 </svg>
