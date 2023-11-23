@@ -1,6 +1,7 @@
 
 @use "@material";
 body {
+  background-color: purple;
   font-family: roboto;
   /* margin: 2em; */
   color: #3d3d3d;
@@ -19,11 +20,16 @@ body {
 
   /* color text */
   color: #444;
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 #scene-container {
+  border: 5px solid black;
   /* tell our scene container to take up the full page */
-  position: absolute;
+  position:static;
   width: 100%;
   height: 100%;
 
