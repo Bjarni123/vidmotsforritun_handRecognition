@@ -1,3 +1,4 @@
+import { threejsMain } from './three.js';
 
 import {
   GestureRecognizer,
@@ -225,4 +226,6 @@ async function predictWebcam() {
     window.requestAnimationFrame(predictWebcam);
   }
 }
+
+threejsMain();
 
