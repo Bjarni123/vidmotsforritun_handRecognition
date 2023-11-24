@@ -122,8 +122,9 @@ function createLights() {
     return {mainLight, ambientLight};
 }
 
+
+const group = new Group();
 function createKettle() {
-    const group = new Group();
 
     const bottomBoxGeometry = new SphereGeometry(1.43, 32, 4);
     const bottomBoxMaterial = new MeshStandardMaterial({ color: 'purple' });
@@ -313,6 +314,20 @@ function threejsMain() {
     world.start();
 }
 
+function rotateZ(rotateThing) {
+    group.rotation.z += rotateThing * 0.1;
+    // group.rotation.x += 0.01;
+    // console.log('rotateX');
+}
+
+function rotateY(rotateThing) {
+    group.rotation.y += rotateThing * 0.1;
+}
+
+function rotateX(rotateThing) {
+    group.rotation.x += rotateThing * 0.1;
+}
+
 
 // main();
-export { threejsMain };
+export { threejsMain, rotateX, rotateY, rotateZ };
