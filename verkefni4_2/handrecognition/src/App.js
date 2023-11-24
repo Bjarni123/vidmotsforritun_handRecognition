@@ -1,4 +1,4 @@
-import { threejsMain, rotateX, rotateY, rotateZ } from './three.js';
+import { threejsMain, kettle } from './three.js';
 
 import {
   GestureRecognizer,
@@ -225,14 +225,15 @@ async function predictWebcam() {
       const rotationZ = results.landmarks[0][12].x - results.landmarks[0][0].x;
       // console.log(results.landmarks[0][12].z - results.landmarks[0][1].z);
       console.log("Z:", rotationZ * 0.1);
-      rotateZ(rotationZ);
+      kettle.rotateZ(rotationZ);
 
-      const rotationY = results.landmarks[0][12].y - results.landmarks[0][0].y;
-      // rotateY(rotationY);
+      const rotationY = results.landmarks[0][4].z - results.landmarks[0][20].z;
+      console.log("Y:", rotationY * 0.1)
+      kettle.rotateY(rotationY);
 
       const rotationX = results.landmarks[0][12].z - results.landmarks[0][0].z;
-      console.log("X:", rotationX * 0.1);
-      rotateX(rotationX);
+      // console.log("X:", rotationX * 0.1);
+      kettle.rotateX(rotationX);
     }
   } else {
     gestureOutput.style.display = "none";

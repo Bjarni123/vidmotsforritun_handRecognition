@@ -122,9 +122,8 @@ function createLights() {
     return {mainLight, ambientLight};
 }
 
-
-const group = new Group();
 function createKettle() {
+    const group = new Group();
 
     const bottomBoxGeometry = new SphereGeometry(1.43, 32, 4);
     const bottomBoxMaterial = new MeshStandardMaterial({ color: 'purple' });
@@ -251,10 +250,35 @@ function createControls(camera, canvas) {
     return controls;
 }
 
+class KettleClass {
+    constructor() {
+        this.kettle = createKettle();
+    }
+
+    rotateX(rotateThing) {
+        this.kettle.rotation.x += rotateThing * 0.1;
+    }
+
+    rotateY(rotateThing) {
+        this.kettle.rotation.y += rotateThing * 0.1;
+    }
+
+    rotateZ(rotateThing) {
+        this.kettle.rotation.z += (rotateThing * 0.1) - 0.01;
+    }
+
+    getKettle() {
+        return this.kettle;
+    }
+
+}
+
 let camera;
 let renderer;
 let scene;
 let loop;
+
+const kettle = new KettleClass();
 
 class World {
     constructor(container) {
@@ -266,8 +290,6 @@ class World {
 
         const controls = createControls(camera, renderer.domElement);
 
-        const kettle = createKettle();
-
 
         const floor = createFloor();
         const { ambientLight, mainLight } = createLights();
@@ -275,10 +297,10 @@ class World {
         //controls.target.copy(meshGroup.position);
 
         // loop.updatables.push(cube);
-        loop.updatables.push(controls, kettle);
+        loop.updatables.push(controls, kettle.getKettle());
 
         //scene.add(ambientLight, mainLight, cube);
-        scene.add(ambientLight, mainLight, kettle, floor);
+        scene.add(ambientLight, mainLight, kettle.getKettle(), floor);
 
         const resizer = new Resizer(container, camera, renderer);
         /* resizer.onResize = () => {
@@ -314,6 +336,8 @@ function threejsMain() {
     world.start();
 }
 
+
+/* 
 function rotateZ(rotateThing) {
     group.rotation.z += rotateThing * 0.1;
     // group.rotation.x += 0.01;
@@ -327,7 +351,7 @@ function rotateY(rotateThing) {
 function rotateX(rotateThing) {
     group.rotation.x += rotateThing * 0.1;
 }
-
+ */
 
 // main();
-export { threejsMain, rotateX, rotateY, rotateZ };
+export { threejsMain, kettle };
