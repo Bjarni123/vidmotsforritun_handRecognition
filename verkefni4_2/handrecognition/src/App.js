@@ -217,7 +217,9 @@ async function predictWebcam() {
       results.gestures[0][0].score * 100
     ).toFixed(2);
     const handedness = results.handednesses[0][0].displayName;
-    gestureOutput.innerText = `GestureRecognizer: ${categoryName}\n Confidence: ${categoryScore} %\n Handedness: ${handedness}`;
+    const handXPos = results.landmarks[0][0].x.toFixed(2);
+    const handYPos = results.landmarks[0][0].y.toFixed(2);
+    gestureOutput.innerText = `GestureRecognizer: ${categoryName}\n Confidence: ${categoryScore} %\n Handedness: ${handedness} \n X: ${handXPos} \t Y: ${handYPos}`;
   } else {
     gestureOutput.style.display = "none";
   }
@@ -226,6 +228,7 @@ async function predictWebcam() {
     window.requestAnimationFrame(predictWebcam);
   }
 }
+
 
 threejsMain();
 
