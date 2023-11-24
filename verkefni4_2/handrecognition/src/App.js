@@ -1,4 +1,4 @@
-import { threejsMain } from './three.js';
+import { threejsMain, rotateX, rotateY, rotateZ } from './three.js';
 
 import {
   GestureRecognizer,
@@ -220,6 +220,20 @@ async function predictWebcam() {
     const handXPos = results.landmarks[0][0].x.toFixed(2);
     const handYPos = results.landmarks[0][0].y.toFixed(2);
     gestureOutput.innerText = `GestureRecognizer: ${categoryName}\n Confidence: ${categoryScore} %\n Handedness: ${handedness} \n X: ${handXPos} \t Y: ${handYPos}`;
+    
+    if (categoryName != "Closed_Fist") {
+      const rotationZ = results.landmarks[0][12].x - results.landmarks[0][0].x;
+      // console.log(results.landmarks[0][12].z - results.landmarks[0][1].z);
+      console.log("Z:", rotationZ * 0.1);
+      rotateZ(rotationZ);
+
+      const rotationY = results.landmarks[0][12].y - results.landmarks[0][0].y;
+      // rotateY(rotationY);
+
+      const rotationX = results.landmarks[0][12].z - results.landmarks[0][0].z;
+      console.log("X:", rotationX * 0.1);
+      rotateX(rotationX);
+    }
   } else {
     gestureOutput.style.display = "none";
   }
