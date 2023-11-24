@@ -239,9 +239,9 @@ function createControls(camera, canvas) {
 
     controls.tick = () => controls.update();
 
-    controls.listenToKeyEvents(window);
+    // controls.listenToKeyEvents(window);
 
-    controls.autoRotate = true;
+    controls.autoRotate = false;
     controls.autoRotateSpeed = 1;
 
     controls.minDistance = 0; // 8
